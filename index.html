@@ -1,0 +1,94 @@
+<html>
+<head>
+    <!-- Metadatos para seleccionar charset y hacer responsive -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Título de la web -->
+    <title>Super Dashboard</title>
+
+    <!-- Injectamos el loader de Google -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Injectamos el ficheros Javascript y hoja de estilos de nuesto Dashboard -->
+    <script src="charts.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="line_chart.js"></script>
+    <script type="text/javascript" src="barchart_servicios_salud.js"></script>
+    <script type="text/javascript" src="barchart_agrupado_social.js"></script>
+    <script type="text/javascript" src="treemap_promedio.js"></script>
+    <script type="text/javascript" src="barchart_entidades.js"></script>
+</head>
+
+<body>
+<!-- Título superior -->
+<h1>10 AÑOS DE MEDICIÓN DE POBREZA EN MÉXICO(2008-2018)</h1>
+
+<!-- Grid con todos los paneles -->
+<div class="dashboard-wrapper">
+    <div id='p1' class='panel'><h3>Evolución del Porcentaje de Población en Situación de Pobreza</h3> <div id='p1Chart' style="width: 900px; height: 500px;"></div> </div>
+    <div id='p2' class='panel'><h3>Carencia al Acceso de Servicios de Salud</h3> <div id='p2Chart'></div> </div>
+    <div id='p3' class='panel'><h3>Carencias Promedio por Indicador de Pobreza</h3> <div id='p3Chart'></div> </div>
+    <div id='p4' class='panel'><h3>Reducción e Incremento de Pobreza por Entidad </h3> <div id='p4Chart'></div> </div>
+    <div id='p5' class='panel'><h3>Comparación de Carencias Sociales (2008 vs 2018)</h3> <div id='p5Chart'></div> </div>
+</div>
+
+<style>
+    /* Color de fondo gris, tipo de letra helvetica. El 'text-align: center' es para centrar el dashboard */
+    body {
+        text-align: center;
+        background-color: #ececec;
+        font-family: 'Helvetica', sans-serif;
+    }
+
+    /* Quitamos los margenes de los títulos tipo 2. Los de los distintos paneles */
+    h2 {
+        margin: 0px;
+    }
+
+    /* Márgenes en auto para que quede centrado en la página.
+        Tamaño máximo de 920 píxeles.
+        configuración del grid a 3 columnas con un espaciado de 15 píxeles. */
+    .dashboard-wrapper {
+        margin: auto;
+        max-width: 920px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+    }
+
+    /* Configuración de cada panel: texto alineado a la izquierda, color de fondo blanco, etc. */
+    .dashboard-wrapper .panel {
+        text-align: left;
+        background-color: #fff;
+        border: 1px solid #d3d3d3;
+        box-shadow: 0 0 4px 1px rgba(143,143,143,.2);
+        padding: 15px;
+    }
+
+    /* Los paneles con Id p1 y p5 ocuparan de la columna 1 a la 4 */
+    .dashboard-wrapper #p1.panel, .dashboard-wrapper #p5.panel {
+        grid-column: 1 / 4;
+    }
+
+    /* Configuración del footer */
+    .bottom {
+        font-size: 10px;
+        margin-top: 15px;
+    }
+
+    .bottom a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    /* Configuración responsive: para dispositivos con pantalla de máximo 104 píxeles de resolución. todos los paneles ocuparán de la columna 1 a la 4 */
+    @media screen and (max-width: 1024px) {
+        .dashboard-wrapper .panel {
+            grid-column: 1 / 4;
+        }
+    }
+</style>
+</body>
+</html>
